@@ -1,0 +1,28 @@
+@primarycolor: #03244d;
+@secondarycolor: #dd550c;
+@hovercolor: #dd550c;
+@accentcolor: white;
+
+
+
+.border-radius (@radius: 12px) {
+    moz-border-radius: @radius;
+    -webkit-border-radius: @radius;
+    border-radius: @radius
+}
+
+.columns (@colct: 2) {
+    -moz-column-count: @colct;
+    -webkit-column-count: @colct;
+    column-count: @colct;
+}
+
+.mixin (@accentcolor) when (lightness(@primarycolor) >= 50%) {
+  @hovercolor: @accentcolor;
+}
+.mixin (@accentcolor) when (lightness(@primarycolor) < 50%) {
+  @hovercolor: @secondarycolor;
+}
+.mixin (@accentcolor) {
+  color: @accentcolor;
+}
